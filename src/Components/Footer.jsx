@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-neutral-300 text-neutral-content items-center p-4 fixed bottom-0">
+    <footer className="footer sm:footer-horizontal bg-base-300 text-neutral-content items-center p-4 fixed bottom-0">
       <aside className="grid-flow-col items-center">
             <img alt="devTinder logo" className="w-48 mx-5 py-0" src="public/devTinder logo.png"/>
       </aside>
