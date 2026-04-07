@@ -1,31 +1,52 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Body from "./Components/Body";
-import Login from "./Components/Login";
+import Body from "./components/Body";
+import Login from "./components/Login";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import Feed from "./Components/Feed";
-import Profile from "./Components/Profile";
+import Feed from "./components/Feed";
+import Profile from "./components/Profile";
+import Error from "./components/Error";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <Provider store={appStore}>
       <BrowserRouter>
         <Routes>
-          {/* Default route */}
-          <Route path="/" element={<Navigate to="/login" />} />
-
-          {/* App layout */}
           <Route path="/" element={<Body />}>
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/profile" element={<Profile />} />
-          </Route>
+            
+            {/* Default */}
+            <Route index element={<Navigate to="/login" />} />
 
-          {/* Auth route */}
-          <Route path="/login" element={<Login />} />
+            {/* Public */}
+            <Route path="login" element={<Login />} />
+
+            {/* Private */}
+            <Route
+              path="feed"
+              element={
+                <ProtectedRoute>
+                  <Feed />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route path="error" element={<Error />} />
+
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>
   );
 }
 
-export default App; 
+export default App;

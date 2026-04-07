@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-300 text-neutral-content items-center p-4 fixed bottom-0">
+    <footer className="footer sm:footer-horizontal bg-base-300 text-neutral-content items-center p-4">
       <aside className="grid-flow-col items-center">
-            <img alt="devTinder logo" className="w-48 mx-5 py-0" src="public/devTinder logo.png"/>
+            <img alt="devTinderLogo" className="w-48 mx-5 py-0" src="/devTinderLogo.png"/>
       </aside>
       <nav className="grid-flow-col gap-4 mx-10 md:place-self-center md:justify-self-end">
         <a>
