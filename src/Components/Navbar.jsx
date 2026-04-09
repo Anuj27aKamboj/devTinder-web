@@ -44,9 +44,8 @@ const Navbar = () => {
 
       {/* RIGHT */}
       {user && (
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-col lg:flex-row text-center">
           <p className="my-auto text-neutral-300">Welcome! {user.firstName}</p>
-
           <div className="dropdown dropdown-end mx-5">
             <div
               tabIndex={0}
