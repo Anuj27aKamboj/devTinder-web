@@ -39,7 +39,7 @@ const Body = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      <main className="grow pt-20">
+      <main className="grow pt-20 relative z-10 my-10">
         <Outlet />
       </main>
 

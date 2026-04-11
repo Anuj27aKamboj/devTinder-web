@@ -116,7 +116,15 @@ const EditProfile = ({ loggedInUser }) => {
 
       {/* ✅ Live Preview */}
       <ProfileUserCard
-        user={{ firstName, lastName, photoURL, age, gender, about, skills }}
+        user={{
+          firstName,
+          lastName,
+          photoURL,
+          age,
+          gender,
+          about,
+          skills: skills ? skills.split(",").map((s) => s.trim()) : [],
+        }}
       />
 
       <div className="mt-10 min-h-screen mx-20 text-neutral-100">

@@ -31,7 +31,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-300 fixed top-0 w-full z-10 px-5 max-h-20">
+    <div className="navbar bg-base-300 fixed top-0 w-full z-50 px-5 max-h-20">
       {/* LEFT */}
       <div className="flex-1">
         <img
@@ -65,6 +65,16 @@ const Navbar = () => {
                 <Link to="/profile">
                   Profile
                   <span className="badge bg-lime-600 text-xs font-light text-black rounded-md">Update</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/connections">
+                  Connections
+                </Link>
+              </li>
+              <li>
+                <Link to="/requests">
+                  Requests
                 </Link>
               </li>
               <li>
