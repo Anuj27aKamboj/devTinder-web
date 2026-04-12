@@ -125,6 +125,7 @@ const EditProfile = ({ loggedInUser }) => {
           about,
           skills: skills ? skills.split(",").map((s) => s.trim()) : [],
         }}
+        enable3D={true}
       />
 
       <div className="mt-10 min-h-screen mx-20 text-neutral-100">
@@ -135,7 +136,7 @@ const EditProfile = ({ loggedInUser }) => {
             </h1>
           </div>
 
-          <div className="card bg-base-200 border-2 border-lime-600 w-full max-w-lg mx-10 rounded-2xl shadow-2xl">
+          <div className="card bg-base-200 border-2 border-lime-600 w-full max-w-lg mx-10 rounded-box shadow-2xl">
             <div className="card-body">
               <fieldset className="fieldset">
                 {/* First Name */}
@@ -224,7 +225,7 @@ const EditProfile = ({ loggedInUser }) => {
 
                 {/* Button */}
                 <button
-                  className="mockup-code mx-auto rounded-xl w-44 cursor-pointer mt-6 disabled:opacity-50"
+                  className="mockup-code mx-auto rounded-box w-44 cursor-pointer mt-6 disabled:opacity-50"
                   onClick={saveChanges}
                   disabled={loading}
                 >

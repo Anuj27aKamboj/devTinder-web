@@ -1,13 +1,15 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addFeed } from "../utils/feedSlice";
+import { addFeed, removeFromFeed } from "../utils/feedSlice";
 import { FeedUserCard } from "./userCardVariant";
+import UserCardSkeleton from "./UserCardSkeleton";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   const getFeed = async () => {
     try {
@@ -16,9 +18,10 @@ const Feed = () => {
       });
       dispatch(addFeed(res?.data?.data));
     } catch (err) {
-      const errorMsg =
-        err.response?.data?.message || "Something went wrong";
+      const errorMsg = err.response?.data?.message || "Something went wrong";
       console.error(errorMsg);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -28,33 +31,39 @@ const Feed = () => {
 
   // ✅ ACTION HANDLERS
   const handleInterested = async (user) => {
+    dispatch(removeFromFeed(user._id));
     try {
       await axios.post(
         BASE_URL + "/request/send/interested/" + user._id,
         {},
-        { withCredentials: true }
+        { withCredentials: true },
       );
-
-      // remove user from feed (optimistic UI)
-      dispatch(addFeed(feed.filter((u) => u._id !== user._id)));
     } catch (err) {
       console.error(err);
     }
   };
 
   const handleIgnore = async (user) => {
+    dispatch(removeFromFeed(user._id));
     try {
       await axios.post(
         BASE_URL + "/request/send/ignored/" + user._id,
         {},
-        { withCredentials: true }
+        { withCredentials: true },
       );
-
-      dispatch(addFeed(feed.filter((u) => u._id !== user._id)));
     } catch (err) {
       console.error(err);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center">
+        <UserCardSkeleton />
+      </div>
+    );
+  }
+
 
   if (!feed || feed.length === 0) {
     return <h1 className="text-center mt-10">No more users</h1>;
@@ -77,6 +86,7 @@ const Feed = () => {
             onClick: handleInterested,
           },
         ]}
+        enable3D={false}
       />
     </div>
   );

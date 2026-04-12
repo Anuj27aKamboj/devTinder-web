@@ -52,7 +52,7 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full border-2 border-lime-600">
+              <div className="w-10 mask mask-squircle">
                 <img alt="user photo" src={user.photoURL} />
               </div>
             </div>
@@ -64,7 +64,7 @@ const Navbar = () => {
               <li>
                 <Link to="/profile">
                   Profile
-                  <span className="badge bg-lime-600 text-xs font-light text-black rounded-md">Update</span>
+                  <span className="badge bg-lime-600 text-xs font-light text-black rounded-box">Update</span>
                 </Link>
               </li>
               <li>
