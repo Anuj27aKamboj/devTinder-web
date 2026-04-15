@@ -1,8 +1,7 @@
 import React from 'react'
-import { ProfileUserCard } from './userCardVariant'
 import { useSelector } from 'react-redux'
-import EditProfile from './EditProfile';
-import UserCardSkeleton from './UserCardSkeleton';
+import EditProfile from './EditProfile.jsx';
+import UserCardSkeleton from './UserCardSkeleton.jsx';
 
 const Profile = () => {
   const loggedInUser = useSelector(store=>store.user);

@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import { BASE_URL } from "../utils/constants";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
+import { BASE_URL } from "../utils/constants.js";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../utils/userSlice.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

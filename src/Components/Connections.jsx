@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../utils/constants";
+import { BASE_URL } from "../utils/constants.js";
 import { useDispatch, useSelector } from "react-redux";
-import { addConnections } from "../utils/connectionSlice";
-import { ConnectionUserCard } from "./userCardVariant";
-import UserCardSkeleton from "./UserCardSkeleton";
+import { addConnections } from "../utils/connectionSlice.js";
+import { ConnectionUserCard } from "../utils/userCardVariant.js";
+import UserCardSkeleton from "./UserCardSkeleton.jsx";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);

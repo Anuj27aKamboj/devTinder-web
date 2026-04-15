@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../utils/constants";
+import { BASE_URL } from "../utils/constants.js";
 import { useDispatch, useSelector } from "react-redux";
-import { addFeed, removeFromFeed } from "../utils/feedSlice";
-import { FeedUserCard } from "./userCardVariant";
-import UserCardSkeleton from "./UserCardSkeleton";
+import { addFeed, removeFromFeed } from "../utils/feedSlice.js";
+import { FeedUserCard } from "../utils/userCardVariant.js";
+import UserCardSkeleton from "./UserCardSkeleton.jsx";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);

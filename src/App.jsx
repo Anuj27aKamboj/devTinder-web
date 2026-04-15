@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Body from "./components/Body";
-import Login from "./components/Login";
+import Body from "./components/Body.jsx";
+import Login from "./components/Login.jsx";
 import { Provider } from "react-redux";
-import appStore from "./utils/appStore";
-import Feed from "./components/Feed";
-import Profile from "./components/Profile";
-import Error from "./components/Error";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Connections from "./components/Connections";
-import Requests from "./components/Requests";
+import appStore from "./utils/appStore.js";
+import Feed from "./components/Feed.jsx";
+import Profile from "./components/Profile.jsx";
+import Error from "./components/Error.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Connections from "./components/Connections.jsx";
+import Requests from "./components/Requests.jsx";
 
 function App() {
   return (

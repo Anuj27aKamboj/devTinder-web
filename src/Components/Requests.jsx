@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { RequestUserCard } from "../components/userCardVariant";
+import { RequestUserCard } from "../utils/userCardVariant.js";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { BASE_URL } from "../utils/constants";
-import { addRequests, removeRequest } from "../utils/requestSlice";
-import UserCardSkeleton from "./UserCardSkeleton";
+import { BASE_URL } from "../utils/constants.js";
+import { addRequests, removeRequest } from "../utils/requestSlice.js";
+import UserCardSkeleton from "./UserCardSkeleton.jsx";
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);

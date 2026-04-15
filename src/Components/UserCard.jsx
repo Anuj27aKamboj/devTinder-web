@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { DEFAULT_AVATAR } from "../utils/constants";
+import { DEFAULT_AVATAR } from "../utils/constants.js";
 
 const UserCard = ({ user, imageClass, buttons = [], enable3D = false }) => {
   const cardRef = useRef(null);

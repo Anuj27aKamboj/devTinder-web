@@ -1,5 +1,5 @@
-import UserCard from "./UserCard";
-import withUserCardVariant from "./withUserCardVariant";
+import UserCard from "../components/UserCard.jsx";
+import withUserCardVariant from "../components/withUserCardVariant.jsx";
 
 export const FeedUserCard = withUserCardVariant(UserCard, {
   imageSize: "large",
