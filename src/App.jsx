@@ -9,6 +9,7 @@ import Error from "./components/Error.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Connections from "./components/Connections.jsx";
 import Requests from "./components/Requests.jsx";
+import Chat from "./components/Chat.jsx";
 
 function App() {
   return (
@@ -56,6 +57,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Requests />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="chat/:targetUserId"
+              element={
+                <ProtectedRoute>
+                  <Chat/>
                 </ProtectedRoute>
               }
             />

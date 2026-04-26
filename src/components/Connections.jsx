@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionSlice.js";
 import { ConnectionUserCard } from "../utils/userCardVariant.js";
 import UserCardSkeleton from "./UserCardSkeleton.jsx";
+import { Link, useNavigate } from "react-router-dom";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const getConnections = async () => {
     try {
@@ -23,6 +25,10 @@ const Connections = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleChatOpen = (user) => {
+    navigate("/chat/" + user._id);
   };
 
   useEffect(() => {
@@ -48,10 +54,21 @@ const Connections = () => {
   return (
     <div>
       <h2 className="text-4xl font-extrabold text-center">Connections</h2>
+
       <div className="bg-base-100 flex flex-wrap justify-center gap-6 p-6 text-center">
         {connections && connections.length > 0 ? (
           connections.map((user) => (
-            <ConnectionUserCard key={user._id} user={user} enable3D={true} />
+            <ConnectionUserCard
+              key={user._id}
+              user={user}
+              buttons={[
+                {
+                  label: "chat",
+                  color: "text-info",
+                  onClick: (user) => handleChatOpen(user),
+                },
+              ]}
+            />
           ))
         ) : (
           <h1 className="text-center mt-10">No connections yet</h1>
