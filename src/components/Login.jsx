@@ -37,8 +37,8 @@ const Login = () => {
   };
 
   return (
-    <div className="hero bg-base-100 min-h-2/3 flex justify-center">
-      <div className="hero-content flex-col lg:flex-row-reverse gap-10">
+    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center bg-base-100">
+      <div className="hero-content items-center flex-col lg:flex-row-reverse gap-10">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl text-neutral-300 w-64 font-bold">
             {isSignUp ? "Sign Up" : "Login"} now!
