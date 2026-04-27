@@ -28,14 +28,10 @@ const Chat = () => {
     if (!userId) return;
 
     const s = createSocketConnection();
-    socketRef.current = s; // ✅ no re-render
+    socketRef.current = s;
 
     s.on("connect", () => {
-      s.emit("joinChat", {
-        firstName: user.firstName,
-        userId,
-        targetUserId,
-      });
+      s.emit("joinChat", { targetUserId });
     });
 
     s.on("messageReceived", (msg) => {
@@ -44,6 +40,10 @@ const Chat = () => {
 
     s.on("errorMessage", (err) => {
       console.error("Socket error:", err.message);
+    });
+
+    s.on("connect_error", (err) => {
+      console.error("Socket connect_error:", err.message);
     });
 
     return () => {
@@ -55,12 +55,9 @@ const Chat = () => {
 
   const sendMessage = () => {
     const socket = socketRef.current;
-
     if (!socket || !newMessage.trim()) return;
 
     socket.emit("sendMessage", {
-      firstName: user.firstName,
-      userId,
       targetUserId,
       text: newMessage,
     });
@@ -71,7 +68,7 @@ const Chat = () => {
   const otherUser = messages.find((m) => m.senderId !== userId);
 
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-140px)]">
+    <div className="flex justify-center items-center h-[calc(100vh-140px)] py-10">
       <div className="w-full max-w-2xl h-full bg-base-300 shadow-2xl rounded-box flex flex-col overflow-hidden">
         <div className="p-4 flex items-center text-center">
           <h2 className="text-lg font-bold">
